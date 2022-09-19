@@ -41,7 +41,7 @@ export function minifyShader(source: string, mangle: boolean): string {
 				line = minifyIds(line);
 
 			}
-			acc.push(line.replace(symbolsRegExp, "$1"));
+			acc.push(line);
 			wrap = true;
 
 		}
