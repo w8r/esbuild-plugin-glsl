@@ -32,7 +32,7 @@ node_modules
 # package-lock.json
 
 # Generated files
-# dist
+dist
 test/generated
 *.log
 *.tmp
