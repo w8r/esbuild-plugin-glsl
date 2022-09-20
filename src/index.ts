@@ -1,19 +1,20 @@
-import { OnLoadArgs, OnLoadResult, Plugin, PluginBuild } from "esbuild";
-import * as fs from "fs";
-import * as util from "util";
-import { minifyShader } from "./minifyShader";
+import type {OnLoadArgs, OnLoadResult, Plugin, PluginBuild} from 'esbuild';
+import * as fs from 'fs';
+import * as util from 'util';
+import {minifyShader} from './minifyShader';
 
 /**
  * GLSL plugin options.
  */
 
-export interface GLSLOptions {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export type GLSLOptions = {
 
 	minify?: boolean;
 
 	mangle?: boolean;
 
-}
+};
 
 /**
  * An options wrapper function that returns the GLSL plugin.
@@ -22,30 +23,24 @@ export interface GLSLOptions {
  * @return The plugin.
  */
 
-function glsl({ minify = false, mangle = false }: GLSLOptions = {}): Plugin {
-
+function glsl({minify = false, mangle = false}: GLSLOptions = {}): Plugin {
 	const readFile = util.promisify(fs.readFile);
 
 	return {
-		name: "glsl",
+		name: 'glsl',
 		setup(build: PluginBuild) {
-
 			async function onLoad(args: OnLoadArgs): Promise<OnLoadResult> {
-
-				const source = await readFile(args.path, "utf8");
+				const source = await readFile(args.path, 'utf8');
 
 				return {
 					contents: minify ? minifyShader(source, mangle) : source,
-					loader: "text"
+					loader: 'text',
 				};
-
 			}
 
-			build.onLoad({ filter: /\.(?:frag|vert|glsl|wgsl)$/ }, onLoad);
-
-		}
+			build.onLoad({filter: /\.(?:frag|vert|glsl|wgsl)$/}, onLoad);
+		},
 	};
-
 }
 
-export { glsl, glsl as default };
+export {glsl, glsl as default};

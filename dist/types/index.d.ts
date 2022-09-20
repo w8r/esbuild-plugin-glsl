@@ -1,11 +1,11 @@
-import { Plugin } from "esbuild";
+import type { Plugin } from 'esbuild';
 /**
  * GLSL plugin options.
  */
-export interface GLSLOptions {
+export declare type GLSLOptions = {
     minify?: boolean;
     mangle?: boolean;
-}
+};
 /**
  * An options wrapper function that returns the GLSL plugin.
  *

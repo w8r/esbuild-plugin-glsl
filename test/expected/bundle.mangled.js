@@ -1,13 +1,27 @@
-var e=`#include <something>
+var o=`#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+varying vec3 f;
+varying vec3 g;
+varying vec3 h;
+uniform vec4 u_color;
+uniform float u_shininess;
+void main() {
+vec3 v = normalize(f);
+vec3 w = normalize(g);
+float x = dot(v, w);
+gl_FragColor = u_color;
+gl_FragColor.rgb *= x;
 #ifdef GL_FRAGMENT_PRECISION_HIGH
-uniform highp sampler2D a;
-#else
-uniform mediump sampler2D a;
+vec3 ae = normalize(h);
+vec3 af = normalize(w + ae);
+float ag = 0.0;
+if (x > 0.0) {
+ag = pow(dot(v, af), u_shininess);
+}
+gl_FragColor.rgb += ag;
 #endif
-uniform mat4 b;varying vec2 c;float d(const in float x){
-#ifdef MUTE_X
-return 0.0;
-#else
-return x;
-#endif
-}void main(){int e=0;for(int f=0;f<SAMPLES_INT;++f){++e;}if(e===0){gl_FragColor.r=1.0;}else if(e===10){gl_FragColor.g=1.0;}else {gl_FragColor.b=1.0;}gl_FragColor.a=(e==42)?1.0:0.0;}`;console.log(e);
+}
+`;console.log(o);

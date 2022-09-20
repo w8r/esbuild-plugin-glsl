@@ -1,3 +1,3 @@
-import fragmentShader from "./shader.frag";
+import fragmentShader from "./shader.vert";
 
 console.log(fragmentShader);
