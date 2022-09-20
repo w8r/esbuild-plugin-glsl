@@ -1,4 +1,4 @@
-# esbuild-plugin-glsl
+# @w8r/esbuild-plugin-glsl
 
 [![CI](https://badgen.net/github/checks/w8r/esbuild-plugin-glsl/main)](https://github.com/w8r/esbuild-plugin-glsl/actions)
 [![Version](https://badgen.net/npm/v/@w8r/esbuild-plugin-glsl?color=green)](https://www.npmjs.com/package/@w8r/esbuild-plugin-glsl)
@@ -15,7 +15,7 @@ npm install esbuild-plugin-glsl
 
 ```js
 import { build } from "esbuild";
-import { glsl } from "esbuild-plugin-glsl";
+import { glsl } from "@w8r/esbuild-plugin-glsl";
 
 build({
 	entryPoints: ["input.js"],
@@ -31,7 +31,7 @@ To mangle and rename variables, you can use `mangle` option. It is a primitive m
 
 ```js
 import { build } from "esbuild";
-import { glsl } from "esbuild-plugin-glsl";
+import { glsl } from "@w8r/esbuild-plugin-glsl";
 
 build({
 	entryPoints: ["input.js"],
