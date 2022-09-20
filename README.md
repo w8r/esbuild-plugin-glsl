@@ -15,7 +15,7 @@ npm install esbuild-plugin-glsl
 
 ```js
 import { build } from "esbuild";
-import { glsl } from "@w8r/esbuild-plugin-glsl";
+import { glsl } from "esbuild-plugin-glsl-minify";
 
 build({
 	entryPoints: ["input.js"],
@@ -31,7 +31,7 @@ To mangle and rename variables, you can use `mangle` option. It is a primitive m
 
 ```js
 import { build } from "esbuild";
-import { glsl } from "@w8r/esbuild-plugin-glsl";
+import { glsl } from "esbuild-plugin-glsl-minify";
 
 build({
 	entryPoints: ["input.js"],

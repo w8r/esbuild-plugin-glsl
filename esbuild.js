@@ -14,7 +14,7 @@ const banner = `/**
 
 await esbuild.build({
 	entryPoints: ['src/index.ts'],
-	outfile: `dist/${name}.js`,
+	outfile: 'dist/index.js',
 	banner: {js: banner},
 	platform: 'node',
 	logLevel: 'info',
@@ -25,7 +25,7 @@ await esbuild.build({
 
 await esbuild.build({
 	entryPoints: ['src/index.ts'],
-	outfile: `dist/${name}.cjs`,
+	outfile: 'dist/index.cjs',
 	banner: {js: banner},
 	platform: 'node',
 	logLevel: 'info',

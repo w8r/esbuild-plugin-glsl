@@ -1,13 +1,13 @@
 {
-	"name": "@w8r/esbuild-plugin-glsl",
+	"name": "esbuild-plugin-glsl-minify",
 	"version": "0.0.1",
 	"description": "A GLSL plugin for esbuild.",
-	"homepage": "https://github.com/vanruesc/esbuild-plugin-glsl",
-	"main": "dist/esbuild-plugin-glsl.cjs",
+	"homepage": "https://github.com/w8r/esbuild-plugin-glsl",
+	"main": "dist/index.cjs",
 	"types": "dist/types/index.d.ts",
 	"exports": {
-		"import": "./dist/esbuild-plugin-glsl.js",
-		"require": "./dist/esbuild-plugin-glsl.cjs"
+		"import": "./dist/index.js",
+		"require": "./dist/index.cjs"
 	},
 	"type": "module",
 	"sideEffects": false,
