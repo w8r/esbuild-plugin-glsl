@@ -1,4 +1,4 @@
-# esbuild-plugin-glsl
+# esbuild-plugin-glsl-minify
 
 [![CI](https://badgen.net/github/checks/w8r/esbuild-plugin-glsl/main)](https://github.com/w8r/esbuild-plugin-glsl/actions)
 [![Version](https://badgen.net/npm/v/esbuild-plugin-glsl-minify?color=green)](https://www.npmjs.com/package/esbuild-plugin-glsl-minify)
