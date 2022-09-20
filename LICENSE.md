@@ -1,3 +1,4 @@
+Copyright © 2022 Alex Milevski
 Copyright © 2020 Raoul van Rüschen
 
 This software is provided 'as-is', without any express or implied warranty. In

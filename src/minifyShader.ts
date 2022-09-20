@@ -1,4 +1,4 @@
-import { mangle as minifyIds } from "./mangle";
+import {mangle as minifyIds} from './mangle';
 
 /**
  * Minifies the given GLSL source code.
@@ -10,47 +10,12 @@ import { mangle as minifyIds } from "./mangle";
  */
 
 export function minifyShader(source: string, mangle: boolean): string {
-
-	const commentsRegExp = /[ \t]*(?:(?:\/\*[\s\S]*?\*\/)|(?:\/\/.*\n))/g;
-	const symbolsRegExp = /\s*([{}=*,+/><&|[\]()\-!?:;])\s*/g;
-
-	let result = source.replace(/\r/g, "").replace(commentsRegExp, "");
-	let wrap = false;
-
-	result = result.split(/\n+/).reduce((acc: string[], line: string) => {
-
-		line = line.trim().replace(/\s{2,}|\t/, " ");
-
-		if(line[0] === "#") {
-
-			if(wrap) {
-
-				acc.push("\n");
-
-			}
-
-			acc.push(line, "\n");
-			wrap = false;
-
-		} else {
-
-			line = line.replace(/(else)$/m, "$1 ");
-			line = line.replace(symbolsRegExp, "$1");
-			if(mangle) {
-
-				line = minifyIds(line);
-
-			}
-			acc.push(line.replace(symbolsRegExp, "$1"));
-			wrap = true;
-
-		}
-
-		return acc;
-
-	}, []).join("");
-
-	return result.replace(/\n{2,}/g, "\n");
-
+	const src = mangle ? minifyIds(source) : source;
+	return src
+		.replace(/\/\/.*/g, '') // Single line comments
+		.replace(/\/\*+\s+(.|\n)*?\*\//gm, '') // Multi line comments
+		.replace(/^\s+/gm, '') // Spaces at the beginning of the file
+		.replace(/ +/gm, ' ') // Multiple spaces in a row;
+		.replace(/\n+/gm, '\n'); // New lines;
 }
 
